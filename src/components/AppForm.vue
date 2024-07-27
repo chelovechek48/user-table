@@ -1,29 +1,40 @@
 <script>
-import usersList from '@/assets/json/usersInfo.json';
-
 export default {
-  data() {
-    return {
-      users: usersList,
-    };
+  name: 'AppForm',
+  props: {
+    usernames: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
 
 <template>
-  <form class="form" action="">
-    <input class="form__item" type="text" name="name" id="name" placeholder="имя">
-    <input class="form__item" type="text" name="phone" id="phone" placeholder="телефон">
-    <select class="form__item" name="parent" id="parent">
-      <option v-for="user in users" :key="user.name" :value="user.name">
-        {{ user.name }}
+  <form class="form" action="" method="get">
+    <input
+      class="form__item"
+      type="text" name="name" id="name"
+      placeholder="имя"
+    >
+    <input
+      class="form__item"
+      type="tel" name="phone" id="phone"
+      placeholder="телефон"
+    >
+    <select
+      class="form__item"
+      name="parent" id="parent"
+    >
+      <option v-for="name in usernames" :key="name" :value="name">
+        {{ name }}
       </option>
     </select>
     <button class="form__item">Сохранить</button>
   </form>
 </template>
 
-<style scopep>
+<style scoped>
 .form {
   display: flex;
   flex-direction: column;

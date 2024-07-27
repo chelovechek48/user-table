@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Maksim",
+    "phone": "89001234567",
+    "parent": false
+  },
+  {
+    "name": "Ivan",
+    "phone": "89001234567",
+    "parent": "Maksim"
+  },
+  {
+    "name": "Egor",
+    "phone": "89001234567",
+    "parent": "Ivan"
+  },
+  {
+    "name": "Nikita",
+    "phone": "89001234567",
+    "parent": false
+  }
+]
