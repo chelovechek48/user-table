@@ -24,11 +24,11 @@ export default {
   },
   methods: {
     getUsersList() {
-      const localUsersList = localStorage.getItem('users-data');
+      const localUsersList = localStorage.getItem('users-list');
       if (localUsersList) {
         return JSON.parse(localUsersList);
       }
-      localStorage.setItem('users-data', JSON.stringify(usersListDefault));
+      localStorage.setItem('users-list', JSON.stringify(usersListDefault));
       return usersListDefault;
     },
     getUsersThree() {
@@ -64,7 +64,7 @@ export default {
       const temp = usersList.find(user => (user.name === name));
       if (!temp) {
         usersList.push(userData);
-        localStorage.setItem('users-data', JSON.stringify(usersList));
+        localStorage.setItem('users-list', JSON.stringify(usersList));
         this.updateData();
       }
     },
