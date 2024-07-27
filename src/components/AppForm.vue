@@ -7,24 +7,38 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      formData: {
+        name: null,
+        phone: null,
+        parent: false,
+      },
+    };
+  },
 };
 </script>
 
 <template>
-  <form class="form" action="" method="get">
+  <form class="form" action="" method="get" @submit.prevent="$emit('addUser', formData)">
     <input
       class="form__item"
       type="text" name="name" id="name"
       placeholder="имя"
+      required
+      v-model="formData.name"
     >
     <input
       class="form__item"
       type="tel" name="phone" id="phone"
       placeholder="телефон"
+      required
+      v-model="formData.phone"
     >
     <select
       class="form__item"
       name="parent" id="parent"
+      v-model="formData.parent"
     >
       <option v-for="name in usernames" :key="name" :value="name">
         {{ name }}

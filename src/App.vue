@@ -57,6 +57,17 @@ export default {
       this.usersList = this.getUsersList();
       this.usersTree = this.getUsersThree();
     },
+    addUserToStorage(userData) {
+      const usersList = this.usersList;
+      const { name } = userData;
+
+      const temp = usersList.find(user => (user.name === name));
+      if (!temp) {
+        usersList.push(userData);
+        localStorage.setItem('users-data', JSON.stringify(usersList));
+        this.updateData();
+      }
+    },
   },
 
   mounted() {
@@ -68,7 +79,7 @@ export default {
 <template>
   <div class="container">
     <AppTable :users-tree="usersTree" :is-child="false" />
-    <AppForm :usernames="usernames" />
+    <AppForm :usernames="usernames" @addUser="addUserToStorage($event)" />
   </div>
 </template>
 
