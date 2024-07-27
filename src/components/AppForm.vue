@@ -40,6 +40,9 @@ export default {
       name="parent" id="parent"
       v-model="formData.parent"
     >
+      <option :value="false">
+        Без начальника
+      </option>
       <option v-for="name in usernames" :key="name" :value="name">
         {{ name }}
       </option>
@@ -55,6 +58,8 @@ export default {
   gap: 1rem;
 }
 .form__item {
-  box-shadow: 0 0 0 2px gray;
+  border: 0.25rem solid gray;
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
 }
 </style>
